@@ -41,6 +41,7 @@
       <HintPath>C:\Program Files\IronPython 2.7\Microsoft.Scripting.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="PresentationCore" />
     <Reference Include="RevitAPI">
       <HintPath>C:\Program Files\Autodesk\Revit 2024\RevitAPI.dll</HintPath>
       <Private>False</Private>
@@ -59,8 +60,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ExecutivePython.cs" />
+    <Compile Include="Application.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RunPython.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ExePy.addin" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>if not exist "C:\ProgramData\Autodesk\Revit\Addins\2024\ExePy" mkdir "C:\ProgramData\Autodesk\Revit\Addins\2024\ExePy"
+if exist "C:\ProgramData\Autodesk\Revit\Addins\2024\ExePy" copy "$(ProjectDir)*.addin" "C:\ProgramData\Autodesk\Revit\Addins\2024"
+if exist "C:\ProgramData\Autodesk\Revit\Addins\2024\ExePy" copy "$(ProjectDir)$(OutputPath)*.dll" "C:\ProgramData\Autodesk\Revit\Addins\2024\ExePy"</PostBuildEvent>
+  </PropertyGroup>
 </Project>

@@ -1,6 +1,6 @@
-﻿using Autodesk.Revit.DB;
+﻿using Autodesk.Revit.Attributes;
+using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
-using Autodesk.Revit.Attributes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace ExePy
 {
     [Transaction(TransactionMode.Manual)]
-    public class ExecutivePython : IExternalCommand
+    public class RunPython : IExternalCommand
     {
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
@@ -21,5 +21,6 @@ namespace ExePy
             exePy.ExecuteFile(filePath);
             return Result.Succeeded;
         }
+      
     }
 }

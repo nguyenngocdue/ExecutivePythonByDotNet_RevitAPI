@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<RevitAddIns>
+  <AddIn Type="Application">
+    <Name>Executive Python</Name>
+    <Assembly>ExePy\ExePy.dll</Assembly>
+    <FullClassName>ExePy.Application</FullClassName>
+    <AddInId>a70d1459-4ba5-4732-ae73-854135e5805d</AddInId>
+    <VendorId>MyCompany</VendorId>
+    <VendorDescription>My Company Description</VendorDescription>
+  </AddIn>
+</RevitAddIns>
